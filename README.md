@@ -43,9 +43,14 @@ rdd_people.map(lambda x: x[1]).mean()
 
 ➤ Group names by age
 rdd_people.groupBy(lambda x: x[1]).map(lambda x: (x[0], list(x[1]))).collect()
+```
+---
 
 ## 📄 Text RDD Analysis
-➤ Load text file
+### ➤ Load text file
+
+---
+```python
 rdd_russia = sc.textFile("/data/russia.txt")
 
 ➤ Line count
@@ -64,4 +69,4 @@ rdd_russia.flatMap(lambda line: line.split())
 ➤ Tokenization and stopword removal
 stopwords = ['a', 'the', 'is', 'to', 'in', 'of']
 rdd_russia.flatMap(lambda line: line.split())
-          .filter(lambda word: word not in stopwords)
+          .filter(lambda word: word not in stopwords)```
